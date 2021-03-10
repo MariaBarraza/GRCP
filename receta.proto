@@ -1,0 +1,43 @@
+
+syntax = "proto3";
+package receta;
+
+service ServicioReceta{
+
+    rpc ObtenerReceta(SolicitudReceta) returns (Receta) {}
+    rpc ObtenerMetaData(Vacio) returns (Meta) {}
+
+}
+
+message Receta {
+
+    int32 id = 1;
+    string nombre = 2;
+    string pasos = 3;
+    repeated Ingrediente ingredientes = 4;
+
+}
+
+message Ingrediente {
+
+    int32 id = 1;
+    string nombre = 2;
+    string cantidad = 3;
+
+}
+
+message SolicitudReceta {
+
+    int32 id = 1;
+
+}
+
+message Vacio {}
+
+message Meta {
+
+    int32 pid = 2;
+
+
+}
+
